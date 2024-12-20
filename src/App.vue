@@ -1,18 +1,55 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <Contador />
-  <Contador />
-  </template>
+  <img alt="Vue logo" src="./assets/logo.png" />
+  <Contador
+    encabezado="contador primero"
+    :valor="calcular(1, 3)"
+    :esVerdad="muestra1"
+    :valor2="778"
+  />
+  <Contador
+    encabezado="contador segundo"
+    v-bind:valor="calcular(5, 3)"
+    :esVerdad="muestra2"
+  />
+  <button @click="cambiar(1)">Cambiar Primero</button>
+  <button @click="cambiar(2)">Cambiar Segundo</button>
+</template>
 
 <script>
-import Contador from './components/Contador.vue';
+import Contador from "./components/Contador.vue";
 
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Contador
-  }
-}
+    Contador,
+  },
+  //no hacer esto
+  methods: {
+    calcular(a, b) {
+      return a + b;
+    },
+    calcular2() {
+      return "hola jhon";
+    },
+    calcular3() {
+      return true;
+    },
+    cambiar(valor) {
+      if(valor===1){
+        this.muestra1=!this.muestra1;
+      }else{
+        this.muestra2=!this.muestra2;
+      }
+      this.muestra=!this.muestra;
+    },
+  },
+  data() {
+    return {
+      muestra1: true,
+      muestra2: true,
+    };
+  },
+};
 </script>
 
 <style>
