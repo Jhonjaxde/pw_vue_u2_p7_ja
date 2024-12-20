@@ -47,7 +47,20 @@ export default {
   //tambien se puede agregar validadores es que un criterio de validacion
   //para saber si es valido o no (sujeta a un valor true o false) 
   props:{
-    encabezado:String,
+    encabezado:{
+      type:String,
+      required:false,
+      default:"Este es un titulo sin el restrintivo",
+      validator(value) {
+        if(value.includes('a')){
+          return true;
+        }else{
+          return false;
+        }
+        
+      }
+      
+    },
     valor:Number,
     valor2:{
       type:Number,

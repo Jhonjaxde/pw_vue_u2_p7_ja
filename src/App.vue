@@ -1,13 +1,13 @@
 <template>
   <img alt="Vue logo" src="./assets/logo.png" />
   <Contador
-    encabezado="contador primero"
+    encabezado="tonta"
     :valor="calcular(1, 3)"
     :esVerdad="muestra1"
     :valor2="778"
   />
   <Contador
-    encabezado="contador segundo"
+    
     v-bind:valor="calcular(5, 3)"
     :esVerdad="muestra2"
   />
